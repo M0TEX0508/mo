@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAFELE & GTV | Мебельная фурнитура</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Основные стили */
+        :root {
+            --gtv-blue: #0066cc;
+            --hafele-red: #cc0000;
+            --mtex-blue: #1a73e8;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+        
+        /* Шапка сайта */
+        .main-header {
+            display: flex;
+            height: 120px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .brand-section {
+            display: flex;
+            width: 100%;
+        }
+        
+        .gtv-brand {
+            width: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hafele-brand {
+            width: 50%;
+            background: var(--hafele-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .brand-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .gtv-title {
+            color: var(--gtv-blue);
+        }
+        
+        .hafele-title {
+            color: white;
+        }
+        
+        .brand-bg {
+            position: absolute;
+            opacity: 0.1;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        /* Навигация */
+        nav {
+            background: rgba(255,255,255,0.95);
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .main-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .menu-item {
+            position: relative;
+        }
+        
+        .menu-item > a {
+            display: block;
+            padding: 15px 25px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .menu-item > a:hover {
+            background: #f5f5f5;
+        }
+        
+        /* Выпадающее меню */
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 100;
+            border-radius: 0 0 4px 4px;
+            overflow: hidden;
+        }
+        
+        .menu-item:hover .submenu {
+            display: block;
+        }
+        
+        .submenu-item a {
+            padding: 12px 20px;
+            display: block;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .submenu-item a:hover {
+            background: #f0f0f0;
+        }
+        
+        /* Основной контент */
+        .main-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        /* Контакты */
+        .contact-section {
+            padding: 30px;
+        }
+        
+        .contact-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin: 0;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .contact-block {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .phone-number {
+            font-size: 1.5rem;
+            color: var(--gtv-blue);
+            margin: 10px 0;
+        }
+        
+        .address {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        /* Слоган */
+        .slogan {
+            background: white;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Социальные сети */
+        .social-links {
+            margin: 25px 0;
+        }
+        
+        .social-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+        
+        .hafele-social {
+            background: var(--hafele-red);
+        }
+        
+        .mtex-social {
+            background: var(--mtex-blue);
+        }
+        
+        .social-icon {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        /* Карты */
+        .map-links {
+            margin-top: 30px;
+        }
+        
+        .map-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .map-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .map-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--gtv-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.2s;
+        }
+        
+        .map-button:hover {
+            background: #004a99;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        /* Страницы категорий */
+        .page {
+            display: none;
+            padding: 20px;
+        }
+        
+        #home-page {
+            display: block;
+        }
+        
+        /* Карточки товаров */
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .product-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        /* Админ-панель */
+        #admin-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 90%;
+            max-width: 400px;
+        }
+        
+        /* Форма добавления товара */
+        #product-form input, 
+        #product-form textarea, 
+        #product-form select {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        #preview-image {
+            max-width: 200px;
+            display: none;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        
+        #storage-notice {
+            display: none;
+            background: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        
+        /* Кнопки */
+        .btn {
+            padding: 8px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #555;
+        }
+        
+        .btn-danger {
+            background-color: #f44336;
+        }
+        
+        .btn-danger:hover {
+            background-color: #d32f2f;
+        }
+        
+        /* Подкатегории */
+        .subcategory-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .subcategory-tab {
+            padding: 8px 15px;
+            background-color: #eee;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        .subcategory-tab.active {
+            background-color: #333;
+            color: white;
+        }
+        
+        /* Управление товарами */
+        .product-actions {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        /* Футер */
+        footer {
+            background: rgba(0,0,0,0.8);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-text {
+            margin: 0;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .main-menu {
+                flex-direction: column;
+            }
+            
+            .menu-item {
+                width: 100%;
+            }
+            
+            .submenu {
+                position: static;
+                box-shadow: none;
+                width: 100%;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка с логотипами -->
+    <header class="main-header">
+        <div class="brand-section">
+            <div class="gtv-brand">
+                <img src="https://via.placeholder.com/300x100/0066CC/FFFFFF?text=GTV" alt="GTV" class="brand-bg">
+                <h1 class="brand-title gtv-title">GTV</h1>
+            </div>
+            <div class="hafele-brand">
+                <img src="https://via.placeholder.com/300x100/CC0000/FFFFFF?text=HAFELE" alt="HAFELE" class="brand-bg">
+                <h1 class="brand-title hafele-title">HAFELE</h1>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Навигационное меню -->
+    <nav>
+        <div class="menu-container">
+            <ul class="main-menu">
+                <li class="menu-item"><a href="#" onclick="showPage('home'); return false;">Главная</a></li>
+                <li class="menu-item">
+                    <a href="#" onclick="showPage('assortment'); return false;">Ассортимент</a>
+                    <ul class="submenu">
+                        <li class="submenu-item"><a href="#" onclick="showSubcategoryPage('gtv-products'); return false;">GTV</a></li>
+                        <li class="submenu-item"><a href="#" onclick="showSubcategoryPage('hafele-products'); return false;">Hafele</a></li>
+                        <li class="submenu-item"><a href="#" onclick="showSubcategoryPage('furniture-products'); return false;">Фурнитура</a></li>
+                        <li class="submenu-item"><a href="#" onclick="showSubcategoryPage('accessories-products'); return false;">Аксессуары</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="#" onclick="showPage('mtex'); return false;">M.TEX</a>
+                    <ul class="submenu">
+                        <li class="submenu-item"><a href="#" onclick="showSubcategoryPage('production-products'); return false;">Производство</a></li>
+                        <li class="submenu-item"><a href="#" onclick="showSubcategoryPage('our-works-products'); return false;">Наши работы</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item"><a href="#" onclick="openAdminModal(); return false;">Админ-панель</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Главная страница -->
+    <div id="home-page" class="page">
+        <main class="main-container">
+            <section class="contact-section">
+                <div class="contact-header">
+                    <h2 class="contact-title">Контактная информация</h2>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-block">
+                        <h3>Телефон</h3>
+                        <div class="phone-number">+7 (778) 293-17-15</div>
+                    </div>
+                    
+                    <div class="contact-block">
+                        <h3>Адрес</h3>
+                        <p class="address">просп. Зейнолла Кабдолова, 33, стр. 2</p>
+                    </div>
+                </div>
+                
+                <!-- Добавленный слоган -->
+                <div class="slogan">
+                    Делаем самую качественную мебель на заказ
+                </div>
+                
+                <div class="social-links">
+                    <h3 class="social-title">Мы в социальных сетях</h3>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/mebelnyetekhnologi__furniture?igsh=MWx0ZzMyNjRuemRlbQ==" class="social-link hafele-social">
+                            <i class="fab fa-instagram social-icon"></i>
+                            HAFELE
+                        </a>
+                        <a href="https://www.instagram.com/mebelnyetekhnologi?igsh=MWZpaTYzOTg5azQ2dw==" class="social-link mtex-social">
+                            <i class="fab fa-instagram social-icon"></i>
+                            M.TEX
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="map-links">
+                    <h3 class="map-title">Мы на картах</h3>
+                    <div class="map-buttons">
+                        <a href="https://yandex.ru/maps/org/gtv/112947747067" class="map-button">Яндекс.Карты</a>
+                        <a href="https://2gis.kz/atyrau/geo/70000001089189280" class="map-button">2ГИС</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Страница ассортимента -->
+    <div id="assortment-page" class="page">
+        <main class="main-container">
+            <h2>Ассортимент товаров</h2>
+            <p>Выберите подкатегорию из меню навигации</p>
+        </main>
+    </div>
+    
+    <!-- Страница M.TEX -->
+    <div id="mtex-page" class="page">
+        <main class="main-container">
+            <h2>M.TEX - мебельные технологии</h2>
+            <p>Выберите подкатегорию из меню навигации</p>
+        </main>
+    </div>
+    
+    <!-- Страницы подкатегорий -->
+    <div id="gtv-products-page" class="page">
+        <main class="main-container">
+            <h2>Продукция GTV</h2>
+            <div id="gtv-products-container" class="products-container"></div>
+        </main>
+    </div>
+    
+    <div id="hafele-products-page" class="page">
+        <main class="main-container">
+            <h2>Продукция Hafele</h2>
+            <div id="hafele-products-container" class="products-container"></div>
+        </main>
+    </div>
+    
+    <div id="furniture-products-page" class="page">
+        <main class="main-container">
+            <h2>Фурнитура</h2>
+            <div id="furniture-products-container" class="products-container"></div>
+        </main>
+    </div>
+    
+    <div id="accessories-products-page" class="page">
+        <main class="main-container">
+            <h2>Аксессуары</h2>
+            <div id="accessories-products-container" class="products-container"></div>
+        </main>
+    </div>
+    
+    <div id="production-products-page" class="page">
+        <main class="main-container">
+            <h2>Производство M.TEX</h2>
+            <div id="production-products-container" class="products-container"></div>
+        </main>
+    </div>
+    
+    <div id="our-works-products-page" class="page">
+        <main class="main-container">
+            <h2>Наши работы M.TEX</h2>
+            <div id="our-works-products-container" class="products-container"></div>
+        </main>
+    </div>
+    
+    <!-- Админ-панель -->
+    <div id="admin-page" class="page">
+        <main class="main-container">
+            <h2>Администрирование</h2>
+            
+            <div class="subcategory-tabs">
+                <button class="subcategory-tab active" onclick="showAdminTab('add-product')">Добавить товар</button>
+                <button class="subcategory-tab" onclick="showAdminTab('manage-products')">Управление товарами</button>
+            </div>
+            
+            <!-- Вкладка добавления товара -->
+            <div id="add-product-tab" class="admin-tab">
+                <form id="product-form">
+                    <input type="text" id="product-name" placeholder="Название товара" required>
+                    
+                    <select id="product-category" required onchange="updateSubcategories()">
+                        <option value="">Выберите категорию</option>
+                        <option value="gtv-products">GTV</option>
+                        <option value="hafele-products">Hafele</option>
+                        <option value="furniture-products">Фурнитура</option>
+                        <option value="accessories-products">Аксессуары</option>
+                        <option value="production-products">Производство M.TEX</option>
+                        <option value="our-works-products">Наши работы M.TEX</option>
+                    </select>
+                    
+                    <textarea id="product-description" placeholder="Описание товара" required></textarea>
+                    <input type="file" id="product-image" accept="image/*" onchange="previewImage(this)">
+                    <img id="preview-image" src="#" alt="Предпросмотр изображения">
+                    <button type="button" class="btn" onclick="saveProduct()">Сохранить товар</button>
+                </form>
+                <div id="storage-notice">Товар успешно сохранен!</div>
+            </div>
+            
+            <!-- Вкладка управления товарами -->
+            <div id="manage-products-tab" class="admin-tab" style="display: none;">
+                <div id="products-list"></div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Модальное окно админ-панели -->
+    <div id="admin-modal">
+        <div class="modal-content">
+            <h3>Введите код доступа</h3>
+            <input type="password" id="admin-code" placeholder="Код доступа">
+            <button class="btn" onclick="checkAdminCode()">Войти</button>
+        </div>
+    </div>
+    
+    <!-- Футер -->
+    <footer>
+        <p class="footer-text">© 2023 HAFELE & GTV. Мебельная фурнитура премиум класса. Все права защищены.</p>
+    </footer>
+    
+    <script>
+        // Хранилище данных
+        let products = JSON.parse(localStorage.getItem('products')) || [];
+        
+        // Функция для переключения страниц
+        function showPage(pageId) {
+            // Скрываем все страницы
+            document.querySelectorAll('.page').forEach(page => {
+                page.style.display = 'none';
+            });
+            
+            // Показываем выбранную страницу
+            const page = document.getElementById(pageId + '-page');
+            if (page) {
+                page.style.display = 'block';
+                
+                // Если это страница подкатегории, загружаем соответствующие товары
+                if (pageId.endsWith('-products')) {
+                    loadProducts(pageId);
+                }
+            }
+            
+            // Прокручиваем вверх
+            window.scrollTo(0, 0);
+        }
+        
+        // Показать страницу подкатегории
+        function showSubcategoryPage(subcategoryId) {
+            showPage(subcategoryId);
+        }
+        
+        // Загрузка товаров для страницы
+        function loadProducts(category) {
+            const container = document.getElementById(`${category}-container`);
+            
+            if (!container) return;
+            
+            // Очищаем контейнер
+            container.innerHTML = '';
+            
+            // Фильтруем товары по категории
+            const filteredProducts = products.filter(p => p.category === category);
+            
+            if (filteredProducts.length === 0) {
+                container.innerHTML = '<p>Товары в этой категории пока отсутствуют</p>';
+                return;
+            }
+            
+            // Добавляем товары в контейнер
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    ${product.image ? `<img src="${product.image}" class="product-image">` : ''}
+                    <div class="product-info">
+                        <div class="product-title">${product.name}</div>
+                        <div class="product-description">${product.description}</div>
+                    </div>
+                `;
+                container.appendChild(productCard);
+            });
+        }
+        
+        // Функции для админ-панели
+        function openAdminModal() {
+            document.getElementById('admin-modal').style.display = 'flex';
+        }
+        
+        function checkAdminCode() {
+            const code = document.getElementById('admin-code').value;
+            // Измененный пароль на 6783
+            if (code === '6783') {
+                document.getElementById('admin-modal').style.display = 'none';
+                showPage('admin');
+                loadProductsList();
+            } else {
+                alert('Неверный код доступа');
+            }
+        }
+        
+        // Показать вкладку админ-панели
+        function showAdminTab(tabId) {
+            document.querySelectorAll('.admin-tab').forEach(tab => {
+                tab.style.display = 'none';
+            });
+            
+            document.getElementById(`${tabId}-tab`).style.display = 'block';
+            
+            // Обновляем активные табы
+            document.querySelectorAll('#admin-page .subcategory-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+        
+        function previewImage(input) {
+            const preview = document.getElementById('preview-image');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
+        function saveProduct() {
+            const name = document.getElementById('product-name').value;
+            const category = document.getElementById('product-category').value;
+            const description = document.getElementById('product-description').value;
+            const imageInput = document.getElementById('product-image');
+            
+            if (!name || !category || !description) {
+                alert('Пожалуйста, заполните все обязательные поля');
+                return;
+            }
+            
+            // Сохраняем товар
+            const product = {
+                id: Date.now(),
+                name,
+                category,
+                description,
+                image: imageInput.files[0] ? URL.createObjectURL(imageInput.files[0]) : ''
+            };
+            
+            products.push(product);
+            localStorage.setItem('products', JSON.stringify(products));
+            
+            // Показываем уведомление
+            const notice = document.getElementById('storage-notice');
+            notice.style.display = 'block';
+            setTimeout(() => {
+                notice.style.display = 'none';
+            }, 3000);
+            
+            // Очищаем форму
+            document.getElementById('product-form').reset();
+            document.getElementById('preview-image').style.display = 'none';
+            
+            // Обновляем список товаров
+            loadProductsList();
+        }
+        
+        // Загрузка списка товаров для управления
+        function loadProductsList() {
+            const container = document.getElementById('products-list');
+            container.innerHTML = '';
+            
+            if (products.length === 0) {
+                container.innerHTML = '<p>Нет сохраненных товаров</p>';
+                return;
+            }
+            
+            // Сортируем товары по категориям
+            const productsByCategory = {};
+            products.forEach(product => {
+                if (!productsByCategory[product.category]) {
+                    productsByCategory[product.category] = [];
+                }
+                productsByCategory[product.category].push(product);
+            });
+            
+            // Отображаем товары по категориям
+            for (const category in productsByCategory) {
+                const categoryHeader = document.createElement('h3');
+                categoryHeader.textContent = getCategoryName(category);
+                container.appendChild(categoryHeader);
+                
+                productsByCategory[category].forEach(product => {
+                    const productItem = document.createElement('div');
+                    productItem.className = 'product-card';
+                    productItem.innerHTML = `
+                        <div class="product-title">${product.name}</div>
+                        <div class="product-description">${product.description.substring(0, 50)}...</div>
+                        <div class="product-actions">
+                            <button class="btn btn-danger" onclick="deleteProduct(${product.id})">Удалить</button>
+                        </div>
+                    `;
+                    container.appendChild(productItem);
+                });
+            }
+        }
+        
+        // Удаление товара
+        function deleteProduct(id) {
+            if (confirm('Вы уверены, что хотите удалить этот товар?')) {
+                products = products.filter(p => p.id !== id);
+                localStorage.setItem('products', JSON.stringify(products));
+                loadProductsList();
+                
+                // Обновляем отображение на страницах
+                const activePage = document.querySelector('.page[style="display: block;"]');
+                if (activePage && activePage.id.endsWith('-products-page')) {
+                    const category = activePage.id.replace('-page', '');
+                    loadProducts(category);
+                }
+            }
+        }
+        
+        // Получение читаемого имени категории
+        function getCategoryName(category) {
+            const names = {
+                'gtv-products': 'GTV',
+                'hafele-products': 'Hafele',
+                'furniture-products': 'Фурнитура',
+                'accessories-products': 'Аксессуары',
+                'production-products': 'Производство M.TEX',
+                'our-works-products': 'Наши работы M.TEX'
+            };
+            return names[category] || category;
+        }
+        
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Показываем главную страницу по умолчанию
+            showPage('home');
+        });
+    </script>
+</body>
+</html>
